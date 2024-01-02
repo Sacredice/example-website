@@ -1,0 +1,27 @@
+{
+  "name": "example-website",
+  "version": "1.0.0",
+  "description": "Jovian website example powered by Express JS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/app.js",
+    "dev": "nodemon src/app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sacredice/example-website.git#main-ver-dynamic_website_Express"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sacredice/example-website/issues"
+  },
+  "homepage": "https://github.com/Sacredice/example-website/tree/main-ver-dynamic_website_Express#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
