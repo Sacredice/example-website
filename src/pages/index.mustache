@@ -137,154 +137,50 @@
     <!--JOBS-->
     <div class="container px-4 mt-4">
       <h2 class="text-center mb-4">Job Opportunities</h2>
-      <!-- Jobs List -->
+      <!--JOBS LIST-->
       <div class="d-md-none">
-        <div class="card mb-3">
-          <div class="card-body">
-            <h5 class="card-title">Frontend Developer</h5>
-            <h6 class="card-subtitle mb-2 text-body-secondary">Bengaluru, India • ₹ 12,00,000</h6>
-            <small class="card-text text-body-secondary">
-              Posted Mar 3, 2023
-            </small>
-          </div>
-        </div>
 
-        <div class="card mb-3">
-          <div class="card-body">
-            <h5 class="card-title">Full Stack Developer</h5>
-            <h6 class="card-subtitle mb-2 text-body-secondary">New Delhi, India • ₹ 12,00,000</h6>
-            <small class="card-text text-body-secondary">
-              Posted Feb 1, 2023
-            </small>
+        {{#jobs}}
+          <div class="card mb-3">
+            <div class="card-body">
+              <h5 class="card-title"><a href="/jobs/{{id}}">{{title}}</a></h5>
+              <h6 class="card-subtitle my-1 text-body-secondary">
+                {{location}} • {{salary}}
+              </h6>
+              <small class="card-text text-body-secondary">
+                Posted {{posted}}
+              </small>
+            </div>
           </div>
-        </div>
+        {{/jobs}}
 
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Data Scientist</h5>
-            <h6 class="card-subtitle mb-2 text-body-secondary">San Francisco, USA • $175,000</h6>
-            <small class="card-text text-body-secondary">
-              Posted Mar 3, 2023
-            </small>
-          </div>
-        </div>
       </div>
-      <div class="d-none d-md-block offset-lg-2 col-lg-8">
-        <table class="table table-bordered table-striped">
+      <!--JOBS TABLE-->
+      <div class="offset-lg-2 col-lg-8">
+        <table class="d-none d-md-table table table-striped table-bordered">
           <tr class="table-primary text-center">
-            <th rowspan="2">Job Title</th>
-            <th colspan="2">Location</th>
-            <th rowspan="2">Salary</th>
-            <th rowspan="2">Posted On</th>
+            <th>Job Title</th>
+            <th>Location</th>
+            <th>Salary</th>
+            <th>Posted On</th>
           </tr>
-          <tr class="table-primary text-center">
-            <th>City</th>
-            <th>Country</th>
-          </tr>
-          <tr>
-            <td>Frontend Developer</td>
-            <td>Bengaluru</td>
-            <td>India</td>
-            <td>₹12,00,000</td>
-            <td>Mar 3, 2023</td>
-          </tr>
-    
-          <tr>
-            <td>Full Stack Developer</td>
-            <td>New Delhi</td>
-            <td>India</td>
-            <td>₹15,00,000</td>
-            <td>Feb 1, 2023</td>
-          </tr>
-    
-          <tr>
-            <td>Data Scientist</td>
-            <td>San Francisco</td>
-            <td>USA</td>
-            <td>$175,000</td>
-            <td>Dec 22, 2022</td>
-          </tr>
-    
-          <tr>
-            <td>ML Engineer</td>
-            <td colspan="2">Remote</td>
-            <td>$80,000</td>
-            <td>Sep 19, 2022</td>
-          </tr>
+
+          {{#jobs}}
+            <tr>
+              <td><a href="/jobs/{{id}}">{{title}}</a></td>
+              <td>{{location}}</td>
+              <td>{{salary}}</td>
+              <td>{{posted}}</td>
+            </tr>
+          {{/jobs}}
+
         </table>
       </div>
+      
 
     </div>
 
-    <!--APPLICATION FORM-->
-    <div class="container px-4">
-      <h2 class="text-center">Submit Your Application</h2>
-      <form class="offset-lg-2 col-lg-8" action="#" method="POST" enctype="multipart/form-data">
 
-        <!-- Full name -->
-        <div class="mb-3 col-sm-8 col-lg-6">
-          <label for="fullName" class="form-label">Full Name</label>
-          <input type="text" class="form-control" name="name" id="fullName" required placeholder="John Doe">
-        </div>
-
-        <!-- Email -->
-        <div class="mb-3 col-sm-8 col-lg-6">
-          <label for="email" class="form-label">Email address</label>
-          <input type="email" class="form-control" name="email" id="email" required placeholder="example@email.com">
-          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-        </div>
-
-        <!-- Phone -->
-        <div class="mb-3 col-sm-8 col-lg-6">
-          <label for="phone" class="form-label">Phone</label>
-          <input type="tel" class="form-control" name="phone" id="phone" required placeholder="+90(5**)*******">
-        </div>
-
-        <!-- Date of birth -->
-        <div class="mb-3 col-sm-8 col-lg-6">
-          <label for="dob" class="form-label">Date of Birth</label>
-          <input type="date" class="form-control" name="dob" id="dob" required>
-        </div>
-
-        <!-- Position select -->
-        <div class="mb-3 col-sm-8 col-lg-6">
-          <label for="position" class="form-label">Position Applied For</label>
-          <select class="form-select" aria-label="Default select example">
-            <optgroup label="Select a position"></optgroup>
-            <option value="frontend developer">Frontend Developer</option>
-            <option selected value="full stack developer">Full Stack Developer</option>
-            <option value="data scientist">Data Scientist</option>
-            <option value="ml engineer ">ML Engineer</option>
-          </select>
-        </div>
-        
-        <!-- Resume upload -->
-        <div class="mb-3 col-sm-8 col-lg-6">
-          <label for="resume" class="form-label">Upload Resume</label>
-          <input type="file" class="form-control" name="resume" id="resume" required>
-        </div>
-
-        <!-- Cover Letter -->
-        <div class="mb-3">
-          <label for="resume" class="form-label">Date of Birth</label>
-          <textarea placeholder="Why should we consider you for the job?" class="form-control" name="resume" id="resume" rows="5" required></textarea>
-        </div>
-
-        <!-- Terms onay checkbox -->
-        <div class="mb-3 col-sm-8 col-lg-6">
-          <input type="checkbox" class="form-check-input" id="terms" />
-          <label class="form-check-label" for="terms"
-            >I agree to the terms and conditions.</label
-          >
-        </div>
-
-        <!-- Submit Button -->
-        <button type="submit" class="btn btn-primary">
-          Submit Application
-        </button>
-      </form>
-
-    </div>
 
     <!--FOOTER-->
     <div class="container">
