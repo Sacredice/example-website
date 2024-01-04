@@ -1,14 +1,15 @@
 const express = require("express");
 const path = require("path");
-const JOBS = require("./jobs");
 const mustacheExpress = require("mustache-express");
+const JOBS = require("./jobs");
+
 
 const app = express();
 
 app.use(express.static(path.join(__dirname, "public")));
 
 // Configure mustache
-app.set("views", path.join(__dirname, "path"));
+app.set("views", path.join(__dirname, "pages"));
 app.set("view engine", "mustache");
 app.engine("mustache", mustacheExpress());
 
