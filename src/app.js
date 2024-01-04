@@ -1,8 +1,8 @@
 const express = require("express");
 const path = require("path");
-const mustacheExpress = require("mustache-express");
-const JOBS = require("./jobs");
 
+const JOBS = require("./jobs");
+const mustacheExpress = require("mustache-express");
 
 const app = express();
 
@@ -17,6 +17,12 @@ app.get("/", (req, res) => {
     // res.sendFile(path.join(__dirname, "./pages/index.html"));
     res.render("index", { jobs: JOBS });
 });
+
+app.get('/jobs/:id', (req, res) => {
+    const id = req.params.id;
+    const matchedJob = JOBS.find(job => job.id.toString() === id);
+    res.render('job', { job: matchedJob});
+})
 
 const port = process.env.PORT || 3000;
 
