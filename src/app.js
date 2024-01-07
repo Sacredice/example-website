@@ -107,16 +107,3 @@ const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log(`Server running on https://localhost:${port}`);
 });
-
-
-//  Create an asyncronous function to send the email / How to synchronously send mails through nodemailer?
-const sendEmail = async (mailOptions) => {
-  try{
-    // Use await to wait for the sendMail promise to resolve
-    const info = await transporter.sendMail(mailOptions);
-    console.log('Email sent: ' + info.messageId);
-  } catch (err) {
-    console.error(err)
-  }
-};
-
