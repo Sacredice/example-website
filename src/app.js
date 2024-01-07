@@ -10,7 +10,7 @@ const sendEmail = require("./helperFunctions");
 const app = express();
 
 const multer = require("multer");
-const upload = multer({ dest: path.join(__dirname,"tmp") });
+const upload = multer({ dest: "/tmp/" });
 
 // built-in middleware to handle urlencoded data in other words, form data: 'content-type: application/x-www-form-urlencoded'
 app.use(express.urlencoded({ extended: false }));
