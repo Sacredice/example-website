@@ -91,7 +91,7 @@ app.post("/jobs/:id/apply", upload.single("resume"), async (req, res) => {
     // });
 
     // asynchronous sendEmail function
-    await sendEmail(mailOptions);
+    await sendEmail(res, transporter, mailOptions);
 
     await fsPromises.unlink(req.file.path, (err) => {
       if (err) throw err;
