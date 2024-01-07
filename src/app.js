@@ -10,7 +10,7 @@ const sendEmail = require("./helperFunctions");
 const app = express();
 
 const multer = require("multer");
-const upload = multer({ dest: "./public/uploads/" });
+const upload = multer({ dest: path.join(__dirname,"uploads") });
 
 // built-in middleware to handle urlencoded data in other words, form data: 'content-type: application/x-www-form-urlencoded'
 app.use(express.urlencoded({ extended: false }));
@@ -82,11 +82,9 @@ app.post("/jobs/:id/apply", upload.single("resume"), async (req, res) => {
     //   if (error) {
     //     console.error(error);
     //     res.status(500).send(error.stack);
-    //     rejects(err);
     //   } else {
     //     console.log('Email sent: ' + info.response);
     //     res.status(200).sendFile(path.join(__dirname, "pages", "applied.html"));
-    //     resolve(info);
     //   }
     // });
 
